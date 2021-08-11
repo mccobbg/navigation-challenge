@@ -53,5 +53,5 @@ On a Mac run:
 
 Assumption:
 
-A left or right turn is a multiple of 90 degrees, 90, 180, 270, ..
+Right or left turns are clockwise or counter-clockwise multiples of 90 degrees, e.g., 90, 180, or 270 (360 is full-circle).
 
