@@ -40,3 +40,18 @@ At the end of these instructions, the ship's Manhattan distance (sum of the abso
 and its north/south position) from its starting position is 17 + 8 = 25.
 
 Figure out where the navigation instructions lead. What is the Manhattan distance between that location and the ship's starting position?
+
+Build instructions:
+
+On a Mac run:
+
+g++ -std=c++17 navigate.cpp position.cpp -o navigate
+
+On a Mac run:
+
+./navigate instructions.txt
+
+Assumption:
+
+A left or right turn is a multiple of 90 degrees, 90, 180, 270, ..
+
