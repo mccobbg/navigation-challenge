@@ -10,21 +10,21 @@ void Navigate::move(const string& move) {
 
         switch (action) {
             case 'F': // move forward direction currently facing
-                position->moveForward(distance);
+                position.moveForward(distance);
                 break;
             case 'L':
-                position->turnLeft(distance);
+                position.turnLeft(distance);
                 return;
             case 'R':
-                position->turnRight(distance);
+                position.turnRight(distance);
                 return;
             case 'N':
             case 'S':
-                position->moveLongitude(action, distance);
+                position.moveLongitude(action, distance);
                 break;
             case 'E': 
             case 'W':
-                position->moveLatitude(action, distance);
+                position.moveLatitude(action, distance);
                 break;
             default: {
                 // Error
@@ -34,8 +34,8 @@ void Navigate::move(const string& move) {
 }
 
 void Navigate::printPosition() const {
-    Direction latitude = position->getLatitude();
-    Direction longitude = position->getLongitude();
+    Direction latitude = position.getLatitude();
+    Direction longitude = position.getLongitude();
     string latitudeDirection = "east";
     if (latitude.direction == 'W') {
         latitudeDirection = "west";
@@ -44,7 +44,7 @@ void Navigate::printPosition() const {
     if (longitude.direction == 'S') {
         longitudeDirection = "south";
     }
-    char facing = position->getFacing();
+    char facing = position.getFacing();
     string facingDirection = "north";
     switch (facing) {
         case 'E':
@@ -64,8 +64,8 @@ void Navigate::printPosition() const {
 }
 
 void Navigate::printManhattanDistance() const {
-    Direction latitude = position->getLatitude();
-    Direction longitude = position->getLongitude();
+    Direction latitude = position.getLatitude();
+    Direction longitude = position.getLongitude();
     cout << "Manhattan distance: " << latitude.distance + longitude.distance << endl;
 }
 
@@ -80,7 +80,7 @@ int main(int argc, char** argv) {
 
     if (argc > 1) {
         string filename(argv[1]);
-        Navigate* nav = new Navigate();
+        Navigate nav;
 
         string line;
         ifstream input_file(filename);
@@ -90,13 +90,13 @@ int main(int argc, char** argv) {
         }
 
         while (getline(input_file, line)) {
-            nav->printPosition();
-            nav->move(line);
+            nav.printPosition();
+            nav.move(line);
         }
-        nav->printPosition();
+        nav.printPosition();
         input_file.close();
 
-        nav->printManhattanDistance();
+        nav.printManhattanDistance();
     }
     return EXIT_SUCCESS;
 }

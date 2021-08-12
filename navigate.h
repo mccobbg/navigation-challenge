@@ -5,14 +5,12 @@
 class Navigate
 {
 public:
-    Navigate() {
-        this->position = new Position();
-    }
+    Navigate() {}
     void move(const string& move);
     void printPosition() const;
     void printManhattanDistance() const;
 private:
-    Position* position;
+    Position position;
 };
 
 #endif // _NAVIGATE_H

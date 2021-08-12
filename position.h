@@ -16,9 +16,9 @@ class Position {
         Position(): latitude({'E', 0}),
                     longitude({'N', 0}),
                     facing('E') {}
-        Direction& getLatitude();
-        Direction& getLongitude();
-        char& getFacing();
+        Direction getLatitude() const;
+        Direction getLongitude() const;
+        char getFacing() const;
         void turnRight(const int &degrees);
         void turnLeft(const int &degrees);
         void moveForward(const int &distance);
