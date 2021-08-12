@@ -8,9 +8,9 @@ public:
     Navigate() {
         this->position = new Position();
     }
-    void move(string move);
-    void printPosition();
-    void printManhattanDistance();
+    void move(const string& move);
+    void printPosition() const;
+    void printManhattanDistance() const;
 private:
     Position* position;
 };

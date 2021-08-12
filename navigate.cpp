@@ -1,7 +1,7 @@
 #include <fstream>
 #include "navigate.h"
 
-void Navigate::move(string move) {
+void Navigate::move(const string& move) {
     int length = move.length();
     if (length > 1) {
         char action = move.front();
@@ -33,15 +33,15 @@ void Navigate::move(string move) {
     }
 }
 
-void Navigate::printPosition() {
+void Navigate::printPosition() const {
     Direction latitude = position->getLatitude();
     Direction longitude = position->getLongitude();
     string latitudeDirection = "east";
-    if (latitude.compassPoint == 'W') {
+    if (latitude.direction == 'W') {
         latitudeDirection = "west";
     }
     string longitudeDirection = "north";
-    if (longitude.compassPoint == 'S') {
+    if (longitude.direction == 'S') {
         longitudeDirection = "south";
     }
     char facing = position->getFacing();
@@ -63,7 +63,7 @@ void Navigate::printPosition() {
     cout << longitudeDirection << ' ' << longitude.distance << endl;
 }
 
-void Navigate::printManhattanDistance() {
+void Navigate::printManhattanDistance() const {
     Direction latitude = position->getLatitude();
     Direction longitude = position->getLongitude();
     cout << "Manhattan distance: " << latitude.distance + longitude.distance << endl;

@@ -7,7 +7,7 @@ using namespace std;
 const string directions = "NESW";
 
 struct Direction {
-    char compassPoint;
+    char direction;
     int distance;
 };
 
@@ -16,14 +16,14 @@ class Position {
         Position(): latitude({'E', 0}),
                     longitude({'N', 0}),
                     facing('E') {}
-        Direction getLatitude();
-        Direction getLongitude();
-        char getFacing();
-        void turnRight(int degrees);
-        void turnLeft(int degrees);
-        void moveForward(int distance);
-        void moveLatitude(char compassPoint, int distance);
-        void moveLongitude(char compassPoint, int distance);
+        Direction& getLatitude();
+        Direction& getLongitude();
+        char& getFacing();
+        void turnRight(const int &degrees);
+        void turnLeft(const int &degrees);
+        void moveForward(const int &distance);
+        void moveLatitude(const char &direction, const int &distance);
+        void moveLongitude(const char &direction, const int &distance);
     private:
         Direction latitude;
         Direction longitude;
